@@ -6,16 +6,16 @@
 }
 
 :root {
-    --colorDark1: #245185;
-    --colorDark2: #8d9094;
-    --colorLight1: #494a4d;
-    --colorLight2: #867171;
+    --colorDark1: #112D4E;
+    --colorDark2: #3F72AF;
+    --colorLight1: #DBE2EF;
+    --colorLight2: #F9F7F7;
 }
 
 .wrapper{
     width:100vw;
     height:100vh;
-    color: var(--colorLight);
+    color: var(--colorLight2);
     background-image: linear-gradient(160deg, #5e5e5f 0%, #658bb9 100%);;
 }
 
