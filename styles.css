@@ -11,10 +11,13 @@
     --colorLight1: #DBE2EF;
     --colorLight2: #F9F7F7;
 }
-
-.wrapper{
+body{
+    
     width:100vw;
     height:100vh;
+}
+
+.wrapper{
     color: var(--colorLight2);
     background-image: linear-gradient(160deg, #5e5e5f 0%, #658bb9 100%);;
 }
