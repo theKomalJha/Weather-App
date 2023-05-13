@@ -3,7 +3,7 @@ const searchTab = document.querySelector("[data-searchWeather]");
 const userContainer = document.querySelector(".weather-container");
 
 const grantAccessContainer = document.querySelector(".grant-location-container");
-const searchForm = document.querySelector("[data-searchForm]");
+const searchForm = document.querySelector("[data-searchForm]"); 
 const loadingScreen = document.querySelector(".loading-container");
 const userInfoContainer = document.querySelector(".user-info-container");
 
@@ -139,15 +139,32 @@ const grantAccessButton = document.querySelector("[data-grantAccess]");
 grantAccessButton.addEventListener("click", getLocation);
 
 const searchInput = document.querySelector("[data-searchInput]");
+const zipInput = document.querySelector("[data-zipInput]");
 
 searchForm.addEventListener("submit", (e) => {
     e.preventDefault();
     let cityName = searchInput.value;
+    let zipCode = zipInput.value;
+  
 
-    if(cityName === "")
+
+    if(cityName === "" && zipCode===""){
+        alert("Please Fill CityName or Zipcode");
         return;
-    else 
+    }
+    else if(zipCode===""){
         fetchSearchWeatherInfo(cityName);
+        searchInput.value="";  
+    }
+    else if(cityName===""){
+        fetchSearchWeatherInfoZipcode(zipCode);
+        zipInput.value="";
+    }
+    else{
+        fetchSearchWeatherInfo(cityName);
+        zipInput.value="";
+        searchInput.value="";    
+    }
 })
 
 async function fetchSearchWeatherInfo(city) {
@@ -165,6 +182,26 @@ async function fetchSearchWeatherInfo(city) {
         renderWeatherInfo(data);
     }
     catch(err) {
-        //hW
+        console.log("Error while Fetching Weather using CityName");
+        console.error(err);
+    }
+}
+async function fetchSearchWeatherInfoZipcode(zipCode) {
+    loadingScreen.classList.add("active");
+    userInfoContainer.classList.remove("active");
+    grantAccessContainer.classList.remove("active");
+
+    try {
+        const response = await fetch( 
+            `https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},IN&appid=${API_KEY}&units=metric`
+          );
+        const data = await response.json();
+        loadingScreen.classList.remove("active");
+        userInfoContainer.classList.add("active");
+        renderWeatherInfo(data);
+    }
+    catch(err) {
+        console.log("Error while Fetching Weather using Zipcode");
+        console.error(err);
     }
 }
