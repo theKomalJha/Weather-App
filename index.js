@@ -81,7 +81,7 @@ async function fetchUserWeatherInfo(coordinates) {
     }
     catch(err) {
         loadingScreen.classList.remove("active");
-        //HW
+        
 
     }
 
@@ -118,20 +118,18 @@ function getLocation() {
     if(navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
-    else {
-        //HW - show an alert for no gelolocation support available
-    }
+    
 }
 
 function showPosition(position) {
-
+//stored the values fetched from api
     const userCoordinates = {
         lat: position.coords.latitude,
         lon: position.coords.longitude,
     }
 
-    sessionStorage.setItem("user-coordinates", JSON.stringify(userCoordinates));
-    fetchUserWeatherInfo(userCoordinates);
+    essionStorage.setItem("user-coordinates", JSON.stringify(userCoordinates));
+    fetchUsersWeatherInfo(userCoordinates);
 
 }
 
