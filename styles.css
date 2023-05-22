@@ -11,10 +11,6 @@
     --colorLight1: #DBE2EF;
     --colorLight2: #F9F7F7;
 }
-/* body{
-    width:100vw;
-    min-height:100vh;
-} */
 
 .wrapper{
      width:100vw;
@@ -52,7 +48,7 @@ h1 {
 }
 
 .weather-container{
-    margin-block:4rem;  /*top and bottom margin are set*/
+    margin-top:3rem;  /*top  are set*/
 }
 
 .btn{
@@ -70,7 +66,7 @@ h1 {
 }
 
 .sub-container{
-    display:flex;
+    display:flex; 
     flex-direction:column;
     align-items: center;
 }
@@ -113,7 +109,7 @@ h1 {
 }
 
 .user-info-container{
-    display:none;
+    display:none; 
 }
 
 .user-info-container.active{
@@ -159,6 +155,7 @@ h1 {
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
+    padding-bottom: 2rem;
 }
 
 .parameter{
@@ -207,7 +204,7 @@ h1 {
 
 .form-container input{
     all:unset;
-    width: calc(100% - 80px);
+    width: calc(50% - 50px);
     height:40px;
     padding: 0 20px;
     background-color:rgba(219, 226, 239, 0.5);
@@ -225,7 +222,7 @@ h1 {
 .form-container .btn {
     padding:unset;   /*remove padding to make perfect round*/
     width: 40px;
-    height: 40px;
+    height: 38px;
     display: flex;  /*to center the image*/
     align-items: center;
     justify-content: center;
